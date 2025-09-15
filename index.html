@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière - Fine Dining Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="font-inter text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-playfair text-2xl font-bold gold-gradient">Lumière</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-yellow-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-yellow-600 transition-colors">About</a>
+                    <a href="#menu" class="text-gray-700 hover:text-yellow-600 transition-colors">Menu</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-yellow-600 transition-colors">Reviews</a>
+                    <a href="#contact" class="text-gray-700 hover:text-yellow-600 transition-colors">Contact</a>
+                </div>
+                <button class="btn-gold text-white px-6 py-2 rounded-full font-medium">Reserve Table</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center parallax" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><defs><linearGradient id=%22bg%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%231a1a1a%22/><stop offset=%22100%25%22 style=%22stop-color:%232d2d2d%22/></linearGradient></defs><rect width=%221200%22 height=%22800%22 fill=%22url(%23bg)%22/><circle cx=%22200%22 cy=%22150%22 r=%2250%22 fill=%22%23D4AF37%22 opacity=%220.1%22/><circle cx=%22800%22 cy=%22300%22 r=%2280%22 fill=%22%23FFD700%22 opacity=%220.05%22/><circle cx=%22400%22 cy=%22600%22 r=%2260%22 fill=%22%23B8860B%22 opacity=%220.08%22/></svg>')">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="font-playfair text-5xl md:text-7xl font-bold mb-6 fade-in">
+                Welcome to <span class="gold-gradient">Lumière</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto fade-in font-light">
+                An extraordinary culinary journey where artistry meets flavor in perfect harmony
+            </p>
+            <div class="space-x-4 fade-in">
+                <button class="btn-gold text-white px-8 py-3 rounded-full font-medium text-lg">View Menu</button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-full font-medium text-lg hover:bg-white hover:text-gray-800 transition-all">Make Reservation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="font-playfair text-4xl font-bold mb-6">Our Story</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        For over two decades, Lumière has been crafting unforgettable dining experiences that celebrate the finest ingredients and culinary artistry. Our award-winning chef combines traditional techniques with innovative flavors.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Every dish tells a story, every meal creates a memory. Welcome to a place where passion meets perfection.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl font-bold gold-gradient">25+</div>
+                            <div class="text-sm text-gray-600">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold gold-gradient">50+</div>
+                            <div class="text-sm text-gray-600">Awards Won</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold gold-gradient">10k+</div>
+                            <div class="text-sm text-gray-600">Happy Guests</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-yellow-100 to-yellow-50 p-8 rounded-2xl shadow-lg">
+                        <svg class="w-full h-64" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="300" fill="#f8f9fa"/>
+                            <rect x="50" y="50" width="300" height="200" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+                            <circle cx="200" cy="120" r="30" fill="#D4AF37"/>
+                            <rect x="120" y="160" width="160" height="8" rx="4" fill="#e5e7eb"/>
+                            <rect x="140" y="180" width="120" height="6" rx="3" fill="#d1d5db"/>
+                            <rect x="160" y="200" width="80" height="6" rx="3" fill="#d1d5db"/>
+                            <text x="200" y="240" text-anchor="middle" fill="#6b7280" font-size="12" font-family="serif">Chef's Kitchen</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-4xl font-bold mb-4">Our Signature Menu</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Carefully curated dishes that showcase the finest ingredients and culinary expertise
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Appetizers -->
+                <div class="menu-item bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🥗</span>
+                        </div>
+                        <h3 class="font-playfair text-xl font-semibold">Truffle Arancini</h3>
+                    </div>
+                    <p class="text-gray-600 text-center mb-4">Crispy risotto balls with black truffle and parmesan, served with saffron aioli</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold gold-gradient">$24</span>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🦪</span>
+                        </div>
+                        <h3 class="font-playfair text-xl font-semibold">Oyster Selection</h3>
+                    </div>
+                    <p class="text-gray-600 text-center mb-4">Fresh daily selection of premium oysters with champagne mignonette</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold gold-gradient">$36</span>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🥩</span>
+                        </div>
+                        <h3 class="font-playfair text-xl font-semibold">Wagyu Beef Tartare</h3>
+                    </div>
+                    <p class="text-gray-600 text-center mb-4">Hand-cut A5 wagyu with quail egg, capers, and toasted brioche</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold gold-gradient">$48</span>
+                    </div>
+                </div>
+
+                <!-- Main Courses -->
+                <div class="menu-item bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🐟</span>
+                        </div>
+                        <h3 class="font-playfair text-xl font-semibold">Pan-Seared Halibut</h3>
+                    </div>
+                    <p class="text-gray-600 text-center mb-4">Wild Alaskan halibut with cauliflower purée and caviar beurre blanc</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold gold-gradient">$52</span>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🦆</span>
+                        </div>
+                        <h3 class="font-playfair text-xl font-semibold">Duck Confit</h3>
+                    </div>
+                    <p class="text-gray-600 text-center mb-4">Slow-cooked duck leg with cherry gastrique and roasted root vegetables</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold gold-gradient">$46</span>
+                    </div>
+                </div>
+
+                <div class="menu-item bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl">🥧</span>
+                        </div>
+                        <h3 class="font-playfair text-xl font-semibold">Chocolate Soufflé</h3>
+                    </div>
+                    <p class="text-gray-600 text-center mb-4">Warm Valrhona chocolate soufflé with vanilla bean ice cream</p>
+                    <div class="text-center">
+                        <span class="text-2xl font-bold gold-gradient">$18</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 fade-in">
+                <button class="btn-gold text-white px-8 py-3 rounded-full font-medium text-lg">View Full Menu</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-4xl font-bold mb-4">What Our Guests Say</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Discover why Lumière has become the destination for unforgettable dining experiences
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-800 rounded-2xl p-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "An absolutely extraordinary experience. Every dish was a masterpiece, and the service was impeccable. This is fine dining at its absolute best."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">SJ</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Sarah Johnson</div>
+                            <div class="text-gray-400 text-sm">Food Critic, Culinary Digest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card bg-gray-800 rounded-2xl p-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Celebrated our anniversary here and it was magical. The attention to detail, the flavors, the ambiance - everything was perfect. We'll definitely be back!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">MR</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Michael Rodriguez</div>
+                            <div class="text-gray-400 text-sm">Regular Guest</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card bg-gray-800 rounded-2xl p-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "As a chef myself, I'm incredibly impressed by the creativity and execution. This restaurant sets the standard for fine dining. Truly exceptional."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">EC</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Emma Chen</div>
+                            <div class="text-gray-400 text-sm">Executive Chef, Le Bernardin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-4xl font-bold mb-4">Visit Us</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Experience culinary excellence in the heart of the city
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="font-playfair text-2xl font-semibold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-yellow-600">📍</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Address</h4>
+                                    <p class="text-gray-600">123 Gourmet Avenue<br>Downtown District, NY 10001</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-yellow-600">📞</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Phone</h4>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-yellow-600">✉️</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p class="text-gray-600">reservations@lumiere.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="text-yellow-600">🕒</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Hours</h4>
+                                    <p class="text-gray-600">
+                                        Tuesday - Saturday: 5:30 PM - 10:00 PM<br>
+                                        Sunday: 5:00 PM - 9:00 PM<br>
+                                        Closed Mondays
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="font-playfair text-2xl font-semibold mb-6">Make a Reservation</h3>
+                        <form class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                                <input type="text" placeholder="Last Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            </div>
+                            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="date" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                                <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                                    <option>Party Size</option>
+                                    <option>2 People</option>
+                                    <option>3 People</option>
+                                    <option>4 People</option>
+                                    <option>5+ People</option>
+                                </select>
+                            </div>
+                            <textarea placeholder="Special Requests" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent"></textarea>
+                            <button type="submit" class="w-full btn-gold text-white py-3 rounded-lg font-medium text-lg">Request Reservation</button>
+                        </form>
+                        <p class="text-sm text-gray-500 mt-4 text-center">
+                            <strong>Demo Form:</strong> This is a sample reservation form for demonstration purposes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="font-playfair text-3xl font-bold gold-gradient mb-4">Lumière</div>
+                <p class="text-gray-400 mb-6">Where culinary artistry meets exceptional service</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Facebook</a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Twitter</a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">OpenTable</a>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-500">&copy; 2024 Lumière Restaurant. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initialize first elements as visible
+        setTimeout(() => {
+            document.querySelectorAll('#home .fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }, 500);
+
+        // Menu button functionality
+        document.querySelector('#home .btn-gold').addEventListener('click', () => {
+            document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Reservation button functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Reserve') || button.textContent.includes('Reservation')) {
+                button.addEventListener('click', () => {
+                    document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your reservation request! We will contact you shortly to confirm your booking.');
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white');
+                nav.classList.remove('bg-white/95');
+            } else {
+                nav.classList.add('bg-white/95');
+                nav.classList.remove('bg-white');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97fb5bc6a3187a65',t:'MTc1Nzk3MzIyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
